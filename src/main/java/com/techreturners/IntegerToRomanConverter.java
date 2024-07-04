@@ -32,7 +32,9 @@ public class IntegerToRomanConverter {
         int split = RomanNumerals.SPLIT_OF_RANGE.get(toRange);
         if (number == fromRange || number == toRange)
             return RomanNumerals.ROMAN_NUMERALS_MAP.get(number);
-        if (number < split)
+        //fromRange == toRange when the number is greater than 1000
+        //Hence checking this condition to handle numbers greater than thousand
+        if (number < split  || fromRange == toRange)
             return RomanNumerals.ROMAN_NUMERALS_MAP.get(fromRange) +
                     convertIntegerToRoman(number - fromRange);
         else

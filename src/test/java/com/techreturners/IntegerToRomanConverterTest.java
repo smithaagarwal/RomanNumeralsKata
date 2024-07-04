@@ -80,5 +80,12 @@ class IntegerToRomanConverterTest {
         assertEquals("CMXCV", convertIntegerToRoman(995));
     }
 
+    @Test
+    public void shouldReturnCorrectRomanNumeralForNumbersGreaterThanThousand() {
+        assertEquals("MDCCCL", convertIntegerToRoman(1850));
+        assertEquals("MMCCI", convertIntegerToRoman(2201));
+        assertEquals("MMCCCL", convertIntegerToRoman(2350));
+    }
+
 
 }
