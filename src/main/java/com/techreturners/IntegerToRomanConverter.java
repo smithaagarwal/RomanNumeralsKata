@@ -25,8 +25,10 @@ public class IntegerToRomanConverter {
 
 
     static String convertIntegerToRoman(int number) {
-        if (number>3000)
+        if (number > 3000)
             throw new IllegalArgumentException("Cannot convert number greater than 3000 to roman numerals");
+        if (number < 0)
+            throw new IllegalArgumentException("Cannot convert number lesser than 0 to roman numerals");
         if (number == 0)
             return "";
         int fromRange = getIntegerValueOfLowerBaseRomanNumeral(number);
@@ -36,7 +38,7 @@ public class IntegerToRomanConverter {
             return RomanNumerals.ROMAN_NUMERALS_MAP.get(number);
         //fromRange == toRange when the number is greater than 1000
         //Hence checking this condition to handle numbers greater than thousand
-        if (number < split  || fromRange == toRange)
+        if (number < split || fromRange == toRange)
             return RomanNumerals.ROMAN_NUMERALS_MAP.get(fromRange) +
                     convertIntegerToRoman(number - fromRange);
         else
