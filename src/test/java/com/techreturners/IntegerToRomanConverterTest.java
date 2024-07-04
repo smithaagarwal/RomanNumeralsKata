@@ -64,5 +64,12 @@ class IntegerToRomanConverterTest {
         assertEquals("VII", convertIntegerToRoman(7));
     }
 
+    @Test
+    public void shouldReturnCorrectRomanNumeralForNumbersLessThanThousandWithSimpleConversions() {
+        assertEquals("DCCCL", convertIntegerToRoman(850));
+        assertEquals("CCI", convertIntegerToRoman(201));
+        assertEquals("CCCL", convertIntegerToRoman(350));
+    }
+
 
 }
