@@ -2,7 +2,7 @@ package com.techreturners;
 
 import org.junit.jupiter.api.Test;
 
-import static com.techreturners.IntegerToRomanConverter.convertIntegerToRoman;
+import static com.techreturners.IntegerToRomanConverter.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class IntegerToRomanConverterTest {
@@ -39,6 +39,13 @@ class IntegerToRomanConverterTest {
         assertEquals("", convertIntegerToRoman(0));
     }
 
-
+    @Test
+    public void shouldReturnLowerBaseRomanNumeral() {
+        assertEquals(1, RomanNumeral.getIntegerValueOfLowerBaseRomanNumeral(3));
+        assertEquals(1, RomanNumeral.getIntegerValueOfLowerBaseRomanNumeral(4));
+        assertEquals(5, RomanNumeral.getIntegerValueOfLowerBaseRomanNumeral(5));
+    //    assertEquals(5, RomanNumeral.getIntegerValueOfLowerBaseRomanNumeral(8));
+      //  assertEquals(10, RomanNumeral.getIntegerValueOfLowerBaseRomanNumeral(35));
+    }
 
 }

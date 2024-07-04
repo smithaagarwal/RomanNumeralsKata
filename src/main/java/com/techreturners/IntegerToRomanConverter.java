@@ -1,6 +1,6 @@
 package com.techreturners;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class IntegerToRomanConverter {
@@ -8,7 +8,7 @@ public class IntegerToRomanConverter {
     public enum RomanNumeral {
         I(1), V(5), X(10), L(50), C(100), D(500), M(1000);
         private  final int value;
-        private static final Map<Integer, String> map = new HashMap<>();
+        private static final Map<Integer, String> map = new LinkedHashMap<>();
         static {
             for(RomanNumeral numeral: RomanNumeral.values()) {
                 map.put(numeral.value, String.valueOf(numeral));
@@ -20,6 +20,17 @@ public class IntegerToRomanConverter {
 
         public static String getRomanNumeral(int number) {
              return map.get(number);
+        }
+
+        public static int getIntegerValueOfLowerBaseRomanNumeral(int number) {
+            int lowerBaseRomanNumeral = 1;
+            for(Integer i: map.keySet()) {
+                if (i>number)
+                    break;
+                else
+                    lowerBaseRomanNumeral = i;
+            }
+            return lowerBaseRomanNumeral;
         }
     }
 
