@@ -24,6 +24,9 @@ public class IntegerToRomanConverter {
     }
 
     static String convertIntegerToRoman(int number) {
-        return RomanNumeral.getRomanNumeral(number);
+        if (number>0 && number<4)
+            return RomanNumeral.getRomanNumeral(1) + convertIntegerToRoman(number-1);
+        return "";
+
     }
 }

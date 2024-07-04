@@ -22,4 +22,16 @@ class IntegerToRomanConverterTest {
 
     }
 
+    @Test
+    public void shouldReturnCorrectRomanNumeralForNumbersLessThanFour() {
+        assertEquals("I", convertIntegerToRoman(1));
+        assertEquals("II", convertIntegerToRoman(2));
+        assertEquals("III", convertIntegerToRoman(3));
+    }
+
+    @Test
+    public void shouldReturnNothingForZero() {
+        assertEquals("", convertIntegerToRoman(0));
+    }
+
 }
