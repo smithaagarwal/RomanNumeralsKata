@@ -1,17 +1,29 @@
 package com.techreturners;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class IntegerToRomanConverter {
 
+    public enum RomanNumeral {
+        I(1), V(5), X(10), L(50), C(100), D(500), M(1000);
+        private  final int value;
+        private static final Map<Integer, String> map = new HashMap<>();
+        static {
+            for(RomanNumeral numeral: RomanNumeral.values()) {
+                map.put(numeral.value, String.valueOf(numeral));
+            }
+        }
+        RomanNumeral(int value)  {
+            this.value=value;
+        }
+
+        public static String getRomanNumeral(int number) {
+             return map.get(number);
+        }
+    }
+
     static String convertIntegerToRoman(int number) {
-        return switch (number) {
-            case 1 -> "I";
-            case 5 -> "V";
-            case 10 -> "X";
-            case 50 -> "L";
-            case 100 -> "C";
-            case 500 -> "D";
-            case 1000 -> "M";
-            default -> "";
-        };
+        return RomanNumeral.getRomanNumeral(number);
     }
 }
