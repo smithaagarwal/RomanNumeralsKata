@@ -69,6 +69,15 @@ class IntegerToRomanConverterTest {
         assertEquals("DCCCL", convertIntegerToRoman(850));
         assertEquals("CCI", convertIntegerToRoman(201));
         assertEquals("CCCL", convertIntegerToRoman(350));
+        assertEquals("DCCCLXXXV", convertIntegerToRoman(885));
+    }
+
+    @Test
+    public void shouldReturnCorrectRomanNumeralForNumbersLessThanThousandWhereOrderOfConversionMatters() {
+        assertEquals("CML", convertIntegerToRoman(950));
+        assertEquals("XCV", convertIntegerToRoman(95));
+        assertEquals("XCIX", convertIntegerToRoman(99));
+        assertEquals("CMXCV", convertIntegerToRoman(995));
     }
 
 
