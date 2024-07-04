@@ -27,10 +27,15 @@ public class IntegerToRomanConverter {
     static String convertIntegerToRoman(int number) {
         if (number== 0)
             return "";
-        if (number>0 && number<4)
-            return RomanNumerals.ROMAN_NUMERALS_MAP.get(1) + convertIntegerToRoman(number-1);
-        if (number>=4 & number<5)
-            return RomanNumerals.ROMAN_NUMERALS_MAP.get(5-number) + convertIntegerToRoman(5);
+        int fromRange = getIntegerValueOfLowerBaseRomanNumeral(number);
+        int toRange = getIntegerValueOfNextBaseRomanNumeral(fromRange);
+        int split = RomanNumerals.SPLIT_OF_RANGE.get(toRange);
+        if(number==fromRange || number==toRange)
+            return RomanNumerals.ROMAN_NUMERALS_MAP.get(number);
+        if (number>fromRange && number<split)
+            return RomanNumerals.ROMAN_NUMERALS_MAP.get(fromRange) + convertIntegerToRoman(number-fromRange);
+        if (number>=split & number<toRange)
+            return RomanNumerals.ROMAN_NUMERALS_MAP.get(toRange-number) + convertIntegerToRoman(toRange);
         else
             return RomanNumerals.ROMAN_NUMERALS_MAP.get(number);
 

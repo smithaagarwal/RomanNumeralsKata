@@ -57,4 +57,12 @@ class IntegerToRomanConverterTest {
         assertEquals(1000, getIntegerValueOfNextBaseRomanNumeral(1000));
     }
 
+    @Test
+    public void shouldReturnCorrectRomanNumeralForNumbersLessThanTen() {
+        assertEquals("IX", convertIntegerToRoman(9));
+        assertEquals("VIII", convertIntegerToRoman(8));
+        assertEquals("VII", convertIntegerToRoman(7));
+    }
+
+
 }

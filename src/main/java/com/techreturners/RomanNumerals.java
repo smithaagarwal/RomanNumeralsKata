@@ -17,12 +17,12 @@ public class RomanNumerals {
         ROMAN_NUMERALS_MAP.put(1000, "M");
     }
 
-    private static final TreeMap<Integer, Integer> SPLIT_OF_RANGE = new TreeMap<>();
+    public static final TreeMap<Integer, Integer> SPLIT_OF_RANGE = new TreeMap<>();
     static {
         SPLIT_OF_RANGE.put(5,4);
-        SPLIT_OF_RANGE.put(10,4);
-        SPLIT_OF_RANGE.put(50,4);
-        SPLIT_OF_RANGE.put(100,4);
+        SPLIT_OF_RANGE.put(10,9);
+        SPLIT_OF_RANGE.put(50,40);
+        SPLIT_OF_RANGE.put(100,90);
         SPLIT_OF_RANGE.put(500,400);
         SPLIT_OF_RANGE.put(1000,900);
     }
