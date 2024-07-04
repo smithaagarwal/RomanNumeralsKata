@@ -41,20 +41,20 @@ class IntegerToRomanConverterTest {
 
     @Test
     public void shouldReturnLowerBaseRomanNumeral() {
-        assertEquals(1, RomanNumeral.getIntegerValueOfLowerBaseRomanNumeral(3));
-        assertEquals(1, RomanNumeral.getIntegerValueOfLowerBaseRomanNumeral(4));
-        assertEquals(5, RomanNumeral.getIntegerValueOfLowerBaseRomanNumeral(5));
-        assertEquals(5, RomanNumeral.getIntegerValueOfLowerBaseRomanNumeral(8));
-        assertEquals(10, RomanNumeral.getIntegerValueOfLowerBaseRomanNumeral(35));
+        assertEquals(1, getIntegerValueOfLowerBaseRomanNumeral(3));
+        assertEquals(1, getIntegerValueOfLowerBaseRomanNumeral(4));
+        assertEquals(5, getIntegerValueOfLowerBaseRomanNumeral(5));
+        assertEquals(5, getIntegerValueOfLowerBaseRomanNumeral(8));
+        assertEquals(10, getIntegerValueOfLowerBaseRomanNumeral(35));
     }
 
     @Test
     public void shouldReturnNextBaseRomanNumeral() {
-        assertEquals(5, RomanNumeral.getIntegerValueOfNextBaseRomanNumeral(1));
-        assertEquals(10, RomanNumeral.getIntegerValueOfNextBaseRomanNumeral(5));
-        assertEquals(50, RomanNumeral.getIntegerValueOfNextBaseRomanNumeral(10));
-        assertEquals(1000, RomanNumeral.getIntegerValueOfNextBaseRomanNumeral(500));
-        assertEquals(1000, RomanNumeral.getIntegerValueOfNextBaseRomanNumeral(1000));
+        assertEquals(5, getIntegerValueOfNextBaseRomanNumeral(1));
+        assertEquals(10, getIntegerValueOfNextBaseRomanNumeral(5));
+        assertEquals(50, getIntegerValueOfNextBaseRomanNumeral(10));
+        assertEquals(1000, getIntegerValueOfNextBaseRomanNumeral(500));
+        assertEquals(1000, getIntegerValueOfNextBaseRomanNumeral(1000));
     }
 
 }
