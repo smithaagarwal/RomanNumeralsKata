@@ -30,8 +30,15 @@ class IntegerToRomanConverterTest {
     }
 
     @Test
+    public void shouldReturnCorrectRomanNumeralForNumberFour() {
+        assertEquals("IV", convertIntegerToRoman(4));
+    }
+
+    @Test
     public void shouldReturnNothingForZero() {
         assertEquals("", convertIntegerToRoman(0));
     }
+
+
 
 }
