@@ -1,14 +1,14 @@
 package com.techreturners;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class IntegerToRomanConverter {
 
     public enum RomanNumeral {
         I(1), V(5), X(10), L(50), C(100), D(500), M(1000);
         private  final int value;
-        private static final Map<Integer, String> map = new LinkedHashMap<>();
+        private static final TreeMap<Integer, String> map = new TreeMap<>();
         static {
             for(RomanNumeral numeral: RomanNumeral.values()) {
                 map.put(numeral.value, String.valueOf(numeral));
@@ -31,6 +31,13 @@ public class IntegerToRomanConverter {
                     lowerBaseRomanNumeral = i;
             }
             return lowerBaseRomanNumeral;
+        }
+
+        public static int getIntegerValueOfNextBaseRomanNumeral(int lowerBase) {
+            Map.Entry<Integer,String> nextEntry = map.higherEntry(lowerBase);
+            if(nextEntry!=null)
+                return nextEntry.getKey();
+            return lowerBase;
         }
     }
 
