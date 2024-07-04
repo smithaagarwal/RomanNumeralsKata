@@ -25,6 +25,8 @@ public class IntegerToRomanConverter {
 
 
     static String convertIntegerToRoman(int number) {
+        if (number>3000)
+            throw new IllegalArgumentException("Cannot convert number greater than 3000 to roman numerals");
         if (number == 0)
             return "";
         int fromRange = getIntegerValueOfLowerBaseRomanNumeral(number);

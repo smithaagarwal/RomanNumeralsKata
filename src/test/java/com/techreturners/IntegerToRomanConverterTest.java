@@ -87,5 +87,12 @@ class IntegerToRomanConverterTest {
         assertEquals("MMCCCL", convertIntegerToRoman(2350));
     }
 
+    @Test
+    public void shouldThrowExceptionForNumbersGreaterThan3000() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            convertIntegerToRoman(3001);
+        });
+    }
+
 
 }
