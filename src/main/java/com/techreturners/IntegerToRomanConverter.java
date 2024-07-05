@@ -23,7 +23,17 @@ public class IntegerToRomanConverter {
         return lowerBase;
     }
 
-
+    /**
+     *  Converts numbers from 1-3000 to roman numerals
+     *  if the number is equal to base roman numerals then return the base numeral from the mapping
+     *  find the range the number falls into, eg is it between 1-5, 5-10,10-50,50-100,100-500,500-1000
+     *  if the number is less than the split point then get the roman numeral for the fromRange and call this method for number - fromRange
+     *  else call this method for torange - split - concatenate torange roman numeral - concatenate result got by calling the method number - split
+     *  find the split point of the range deduced i.e 4,9,40,90,400,900 respectively for the above ranges
+     *
+     * @param number integer to convert
+     * @return roman numeral for number passed
+     */
     static String convertIntegerToRoman(int number) {
         if (number > 3000)
             throw new IllegalArgumentException("Cannot convert number greater than 3000 to roman numerals");
