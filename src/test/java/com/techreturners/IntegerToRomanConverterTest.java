@@ -39,12 +39,7 @@ class IntegerToRomanConverterTest {
         assertEquals("", convertIntegerToRoman(0));
     }
 
-    @Test
-    public void shouldReturnExceptionForNegativeNumbers() {
-        assertThrows(IllegalArgumentException.class, () -> convertIntegerToRoman(-11));
-    }
-
-    @Test
+       @Test
     public void shouldReturnLowerBaseRomanNumeral() {
         assertEquals(1, getIntegerValueOfLowerBaseRomanNumeral(3));
         assertEquals(1, getIntegerValueOfLowerBaseRomanNumeral(4));
@@ -94,8 +89,14 @@ class IntegerToRomanConverterTest {
 
     @Test
     public void shouldThrowExceptionForNumbersGreaterThan3000() {
-        assertThrows(IllegalArgumentException.class, () -> convertIntegerToRoman(3001));
+        var exception = assertThrows(IllegalArgumentException.class, () -> convertIntegerToRoman(3001));
+        assertEquals("Cannot convert number greater than 3000 to roman numerals", exception.getMessage());
     }
 
+    @Test
+    public void shouldReturnExceptionForNegativeNumbers() {
+        var exception = assertThrows(IllegalArgumentException.class, () -> convertIntegerToRoman(-11));
+        assertEquals("Cannot convert number lesser than 0 to roman numerals", exception.getMessage());
+    }
 
 }
